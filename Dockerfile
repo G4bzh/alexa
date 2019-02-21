@@ -5,6 +5,11 @@ RUN set -x \
         && apt-get update \
         && apt-get install --no-install-recommends --no-install-suggests -y \
                 git  ca-cacert net-tools python-pyaudio sox libatlas-base-dev swig alsa-utils make g++ python-dev libttspico-utils  curl jq nano perl sox wget whiptail libsox-fmt-mp3 \
+        && apt-get install --no-install-recommends --no-install-suggests -y gnupg apt-transport-https wget git dirmngr python-pip python-sklearn python-dev bzip2 supervisor init-system-helpers \
+        && echo "deb https://debian.snips.ai/stretch stable main" > /etc/apt/sources.list.d/snips.list \
+        && apt-key adv --keyserver pgp.surfnet.nl --recv-keys F727C778CCB0A455 \
+        && apt-get update \
+        && apt-get install -y snips-asr \
         && cd /opt \
         && git -c http.sslVerify=false clone https://github.com/G4bzh/jarvis.git \
         && git -c http.sslVerify=false clone https://github.com/G4bzh/snowboy \
