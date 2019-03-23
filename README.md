@@ -33,6 +33,13 @@ usermod -aG docker pi
 sudo docker build -t g4bzh/alexa-base-stretch:pi -f Dockerfile .
 ```
 
+
+```
+docker login
+docker push  g4bzh/alexa-base-stretch:rpi
+
+```
+
 ## Run
 
 Need 3 parameters:

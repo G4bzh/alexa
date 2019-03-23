@@ -21,6 +21,8 @@ RUN set -x \
         && cp -r resources/ /opt/jarvis/stt_engines/snowboy/ \
         && cp  /opt/jarvis/stt_engines/snowboy/resources/alexa/alexa*.umdl  /opt/jarvis/stt_engines/snowboy/resources/alexa.umdl \
         && sed -i -e '/EUID/,+4 s/^/#/' /opt/jarvis/jarvis.sh \
+        && sed -i "s/#cmd = 'arecord/cmd = 'arecord/g" /opt/jarvis/stt_engines/snowboy/maindecoder_sox.py \
+        && sed -i "s/cmd = 'rec/#cmd = 'rec/g" /opt/jarvis/stt_engines/snowboy/maindecoder_sox.py \
         && usermod -a -G audio root \
         && echo "" > /opt/jarvis/config/bing_speech_api_key \
         && echo "0" > /opt/jarvis/config/check_updates \
@@ -67,4 +69,4 @@ RUN set -x \
         && apt-get remove --purge --auto-remove -y g++ make swig \
         && rm -rf /var/lib/apt/lists/* /opt/snowboy
 
-CMD ["/opt/jarvis/jarvis.sh", "-n"]        
+CMD ["/opt/jarvis/jarvis.sh", "-n"]
