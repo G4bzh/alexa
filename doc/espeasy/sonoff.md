@@ -3,7 +3,7 @@
 SSID: ESP_EASY_0
 Pass: configesp
 
-
+```
 Carte réseau sans fil Wi-Fi :
 
    Suffixe DNS propre à la connexion. . . :
@@ -11,7 +11,7 @@ Carte réseau sans fil Wi-Fi :
    Adresse IPv4. . . . . . . . . . . . . .: 192.168.4.100
    Masque de sous-réseau. . . . . . . . . : 255.255.255.0
    Passerelle par défaut. . . . . . . . . : 192.168.4.1
-
+```
 
 Go to http://192.168.4.1
 
@@ -82,7 +82,7 @@ A new menu named "Rules" should now be available.
 ## Rules
 
 On "rules set 1",paste the following:
-
+```
 on Button#state do
   if [Button#state]=1
    gpio,12,1
@@ -98,7 +98,7 @@ on Button#state do
   gpio,13,0
  endif
 endon
-
+```
 
 The fisrt snippet change relay state accoding to button state
 The second change LED state (GPIO 13) according to relay state (1 == relay closed )
