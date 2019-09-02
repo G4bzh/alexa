@@ -19,6 +19,7 @@ reboot now
 Wiring
 ======
 
+```
 RPI GPIO (sdcard up)
 +---+---+
 | 1 | 2 |
@@ -40,15 +41,19 @@ GPIO 9 -> GND 3V
 3V Sonoff -> 3V in
 
 RPI powered via mini usb
+```
 
 Software
 ========
 
+```
 sudo apt-get install python-pip -y
 sudo pip install esptool
+```
 
 Flash mode: power off sonoff, press button, power on keeping button pressed for 2s, release button
 
+```
 esptool.py --port /dev/ttyS0 erase_flash
 esptool.py v2.6
 Serial port /dev/ttyS0
@@ -63,14 +68,17 @@ Stub running...
 Erasing flash (this may take a while)...
 Chip erase completed successfully in 1.1s
 Hard resetting via RTS pin...
+```
 
-
+```
 wget https://github.com/letscontrolit/ESPEasy/releases/download/mega-20190301/ESPEasy_mega-20190301.zip
 unzip ESPEasy_mega-20190301.zip
 cd bin/
+```
 
 Put sonoff back into flash mode. 
 
+```
 esptool.py --port /dev/ttyS0 write_flash -fm dout 0x0 ESP_Easy_mega-20190301_normal_ESP8266_1M.bin
 
 miniterm.py /dev/ttyS0 115200 -e
@@ -112,7 +120,7 @@ INIT : Booting version: mega-20190301 (ESP82xx Core 2_4_2, NONOS SDK 2.2.1(cfd48
 502 : WIFI : Set WiFi to AP
 1424 : WIFI : AP Mode ssid will be ESP_Easy_0 with address 192.168.4.1
 2762 : WD   : Uptime 0 ConnectFailures 0 FreeMem 23040 WiFiStatus 0
-
+```
 
 GOOD !!!!!!!
 
